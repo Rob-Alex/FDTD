@@ -147,6 +147,7 @@
 		989DD6532B31026F00A8B8FE /* source.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = source.cpp; sourceTree = "<group>"; };
 		989DD6542B31026F00A8B8FE /* source.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = source.hpp; sourceTree = "<group>"; };
 		989DD6562B31028600A8B8FE /* config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = config.hpp; sourceTree = "<group>"; };
+		98DF76B12B31077C00B1C9EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +168,7 @@
 		989DD5BD2B30FFED00A8B8FE = {
 			isa = PBXGroup;
 			children = (
+				98DF76B12B31077C00B1C9EB /* README.md */,
 				989DD5DE2B31002400A8B8FE /* metal-cpp */,
 				989DD5D02B31002400A8B8FE /* metal-cpp-extensions */,
 				989DD5C82B30FFED00A8B8FE /* FDTD */,
