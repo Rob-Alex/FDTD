@@ -6,3 +6,13 @@
 //
 
 #include "field.hpp"
+
+Field::Field()
+{
+    
+}
+
+Field::~Field()
+{
+    
+}

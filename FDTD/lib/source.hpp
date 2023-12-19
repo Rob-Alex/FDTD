@@ -8,6 +8,12 @@
 #ifndef source_hpp
 #define source_hpp
 
-#include <stdio.h>
+class Source
+{
+private:
+public:
+    Source();
+    ~Source();
+};
 
 #endif /* source_hpp */

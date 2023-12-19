@@ -8,6 +8,15 @@
 #ifndef material_hpp
 #define material_hpp
 
-#include <stdio.h>
+class Material
+{
+private:
+    float* epsilon;
+    float* mu;
+public:
+    Material();
+    Material(float*, float*);
+    ~Material();
+};
 
 #endif /* material_hpp */

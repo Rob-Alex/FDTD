@@ -8,6 +8,12 @@
 #ifndef structures_hpp
 #define structures_hpp
 
-#include <stdio.h>
+class Structure
+{
+private:
+public:
+    Structure();
+    ~Structure();
+};
 
 #endif /* structures_hpp */

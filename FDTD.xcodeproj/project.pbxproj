@@ -16,6 +16,10 @@
 		989DD64F2B3101C700A8B8FE /* structures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 989DD64D2B3101C700A8B8FE /* structures.cpp */; };
 		989DD6522B31026700A8B8FE /* material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 989DD6502B31026700A8B8FE /* material.cpp */; };
 		989DD6552B31026F00A8B8FE /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 989DD6532B31026F00A8B8FE /* source.cpp */; };
+		98DF76BC2B31086500B1C9EB /* shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 98DF76BB2B31086500B1C9EB /* shader.metal */; };
+		98DF76C62B31DFF400B1C9EB /* view_delegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98DF76BE2B31CF6500B1C9EB /* view_delegate.cpp */; };
+		98DF76C72B31DFF400B1C9EB /* app_delegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98DF76C12B31CF8B00B1C9EB /* app_delegate.cpp */; };
+		98DF76C82B31DFF400B1C9EB /* renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98DF76C32B31CF9700B1C9EB /* renderer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -148,6 +152,13 @@
 		989DD6542B31026F00A8B8FE /* source.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = source.hpp; sourceTree = "<group>"; };
 		989DD6562B31028600A8B8FE /* config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = config.hpp; sourceTree = "<group>"; };
 		98DF76B12B31077C00B1C9EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		98DF76BB2B31086500B1C9EB /* shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shader.metal; sourceTree = "<group>"; };
+		98DF76BD2B31CF5B00B1C9EB /* view_delegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = view_delegate.hpp; sourceTree = "<group>"; };
+		98DF76BE2B31CF6500B1C9EB /* view_delegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = view_delegate.cpp; sourceTree = "<group>"; };
+		98DF76C02B31CF7100B1C9EB /* app_delegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = app_delegate.hpp; sourceTree = "<group>"; };
+		98DF76C12B31CF8B00B1C9EB /* app_delegate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = app_delegate.cpp; sourceTree = "<group>"; };
+		98DF76C32B31CF9700B1C9EB /* renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = renderer.cpp; sourceTree = "<group>"; };
+		98DF76C52B31CFA100B1C9EB /* renderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = renderer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +166,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989DD6432B3100E100A8B8FE /* Foundation.framework in Frameworks */,
+				989DD6452B3100E600A8B8FE /* QuartzCore.framework in Frameworks */,
 				989DD6492B3100F600A8B8FE /* Metal.framework in Frameworks */,
 				989DD6472B3100EA00A8B8FE /* MetalKit.framework in Frameworks */,
-				989DD6452B3100E600A8B8FE /* QuartzCore.framework in Frameworks */,
-				989DD6432B3100E100A8B8FE /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +397,7 @@
 		989DD63F2B31004D00A8B8FE /* shaders */ = {
 			isa = PBXGroup;
 			children = (
+				98DF76BB2B31086500B1C9EB /* shader.metal */,
 			);
 			path = shaders;
 			sourceTree = "<group>";
@@ -393,6 +405,12 @@
 		989DD6402B31005800A8B8FE /* renderer */ = {
 			isa = PBXGroup;
 			children = (
+				98DF76BE2B31CF6500B1C9EB /* view_delegate.cpp */,
+				98DF76C12B31CF8B00B1C9EB /* app_delegate.cpp */,
+				98DF76C32B31CF9700B1C9EB /* renderer.cpp */,
+				98DF76C52B31CFA100B1C9EB /* renderer.hpp */,
+				98DF76C02B31CF7100B1C9EB /* app_delegate.hpp */,
+				98DF76BD2B31CF5B00B1C9EB /* view_delegate.hpp */,
 			);
 			path = renderer;
 			sourceTree = "<group>";
@@ -465,10 +483,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98DF76C62B31DFF400B1C9EB /* view_delegate.cpp in Sources */,
+				98DF76C72B31DFF400B1C9EB /* app_delegate.cpp in Sources */,
+				98DF76C82B31DFF400B1C9EB /* renderer.cpp in Sources */,
 				989DD6552B31026F00A8B8FE /* source.cpp in Sources */,
 				989DD6522B31026700A8B8FE /* material.cpp in Sources */,
 				989DD64C2B3101B100A8B8FE /* field.cpp in Sources */,
 				989DD5CA2B30FFED00A8B8FE /* main.cpp in Sources */,
+				98DF76BC2B31086500B1C9EB /* shader.metal in Sources */,
 				989DD64F2B3101C700A8B8FE /* structures.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,16 +616,18 @@
 		989DD5CE2B30FFED00A8B8FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WGPNULH7A3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
 					"${PROJECT_DIR}/metal-cpp-extensions",
 					"${PROJECT_DIR}/metal-cpp",
+					"${PROJECT_DIR}/FDTD/lib",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"${PROJECT_DIR}/lib",
-					"${PROJECT_DIR}/renderer",
+					"${PROJECT_DIR}/FDTD/renderer",
+					"${PROJECT_DIR}/FDTD/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -612,16 +636,18 @@
 		989DD5CF2B30FFED00A8B8FE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WGPNULH7A3;
 				ENABLE_HARDENED_RUNTIME = YES;
 				HEADER_SEARCH_PATHS = (
 					"${PROJECT_DIR}/metal-cpp-extensions",
 					"${PROJECT_DIR}/metal-cpp",
+					"${PROJECT_DIR}/FDTD/lib",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"${PROJECT_DIR}/lib",
-					"${PROJECT_DIR}/renderer",
+					"${PROJECT_DIR}/FDTD/renderer",
+					"${PROJECT_DIR}/FDTD/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

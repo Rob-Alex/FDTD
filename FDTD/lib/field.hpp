@@ -8,6 +8,11 @@
 #ifndef field_hpp
 #define field_hpp
 
-#include <stdio.h>
+class Field {
+private:
+public:
+    Field();
+    ~Field();
+};
 
 #endif /* field_hpp */
