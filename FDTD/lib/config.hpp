@@ -12,5 +12,13 @@
 #include <AppKit/AppKit.hpp>
 #include <MetalKit/MetalKit.hpp>
 
+#include <simd/simd.h>
+#include <fstream>
+#include <sstream>
+
+struct Vertex {
+    simd::float3 pos;   //3d coord
+    simd::float3 color; //R G B 
+};
 
 #endif /* config_h */

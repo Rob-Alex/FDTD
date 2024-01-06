@@ -9,9 +9,7 @@
 #define renderer_hpp
 
 #include "config.hpp"
-#include <simd/simd.h>
-#include <fstream>
-#include <sstream>
+#include "mesh.hpp"
 
 class Renderer
 {
@@ -21,13 +19,14 @@ private:
     MTL::RenderPipelineState* _pPSO;    //render pipeline
     MTL::Buffer* _pVertPosBuffer;       //stores all vertex positions
     MTL::Buffer* _pVertColBuffer;
-    MTL::Buffer* _pIndexBuffer;         //index to draw each triangle
 public:
     Renderer( MTL::Device* pDevice );
     ~Renderer();
+    void buildMeshes();
     void buildShaders();
-    void buildBuffers();
+//    void buildBuffers();                //unsure if I need this 
     void draw( MTK::View* pView );
+    Mesh quadMesh;
     float dt; //timestep
 };
 

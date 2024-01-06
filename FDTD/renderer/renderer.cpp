@@ -1,22 +1,29 @@
 
 #include "renderer.hpp"
-#include "config.hpp"
 
 Renderer::Renderer( MTL::Device* pDevice )
 : _pDevice( pDevice->retain() )
 {
     _pCmdQ = _pDevice->newCommandQueue();
+    buildMeshes();
     buildShaders();
-    buildBuffers();
+    //buildBuffers();
 }
 
 Renderer::~Renderer()
 {
+    quadMesh.pIndexBuffer->release();
+    quadMesh.pVertexBuffer->release();
     _pVertPosBuffer->release();
     _pVertColBuffer->release();
     _pPSO->release();
     _pCmdQ->release();
     _pDevice->release();
+}
+
+void Renderer::buildMeshes()
+{
+    quadMesh = Msh::buildQuad(_pDevice);
 }
 
 void Renderer::buildShaders()
@@ -45,6 +52,25 @@ void Renderer::buildShaders()
     pDesc->setFragmentFunction( pFragFn );
     pDesc->colorAttachments()->object(0)->setPixelFormat( MTL::PixelFormat::PixelFormatBGRA8Unorm_sRGB );
 
+    MTL::VertexDescriptor* pVertDesc = MTL::VertexDescriptor::alloc()->init();
+    auto attributes = pVertDesc->attributes();
+    //attrib 0 -> pos
+    auto pPosDesc = attributes->object(0);
+    pPosDesc->setFormat(MTL::VertexFormat::VertexFormatFloat3);
+    pPosDesc->setOffset(0);
+    pPosDesc->setBufferIndex(0);
+    
+    //attrib 1 -> colour
+    auto pColDesc = attributes->object(1);
+    pColDesc->setFormat(MTL::VertexFormat::VertexFormatFloat3);
+    pColDesc->setOffset(4 * sizeof(float));
+    pColDesc->setBufferIndex(0);
+    
+    auto layoutDesc = pVertDesc->layouts()->object(0);
+    layoutDesc->setStride(8 * sizeof(float));
+    
+    pDesc->setVertexDescriptor(pVertDesc);
+    
     _pPSO = _pDevice->newRenderPipelineState( pDesc, &pError );
     if ( !_pPSO )
     {
@@ -59,15 +85,16 @@ void Renderer::buildShaders()
     file.close();
 }
 
+/*
 void Renderer::buildBuffers()
 {
     const size_t NumVertices = 3;
 
        simd::float3 positions[NumVertices] =
        {
-           { -0.8f,  0.8f, 0.0f },
-           {  0.0f, -0.8f, 0.0f },
-           { +0.8f,  0.8f, 0.0f }
+           { -1.0f,  1.0f, 0.0f },
+           { -1.0f, -1.0f, 0.0f },
+           { +1.0f,  1.0f, 0.0f }
        };
 
        simd::float3 colors[NumVertices] =
@@ -93,7 +120,7 @@ void Renderer::buildBuffers()
        _pVertColBuffer->didModifyRange( NS::Range::Make( 0, _pVertColBuffer->length() ) );
 
 }
-
+*/
 void Renderer::draw( MTK::View* pView )
 {
     NS::AutoreleasePool* pPool = NS::AutoreleasePool::alloc()->init();
@@ -102,11 +129,19 @@ void Renderer::draw( MTK::View* pView )
     MTL::RenderPassDescriptor* pRpd = pView->currentRenderPassDescriptor();
     MTL::RenderCommandEncoder* pEnc = pCmd->renderCommandEncoder( pRpd );
 
+    
+    /*
     pEnc->setRenderPipelineState( _pPSO );
     pEnc->setVertexBuffer( _pVertPosBuffer, 0, 0 );
     pEnc->setVertexBuffer( _pVertColBuffer, 0, 1 );
     pEnc->drawPrimitives( MTL::PrimitiveType::PrimitiveTypeTriangle, NS::UInteger(0), NS::UInteger(3) );
 
+    */
+    
+    pEnc->setRenderPipelineState( _pPSO );
+    pEnc->setVertexBuffer(quadMesh.pVertexBuffer, 0, 0 );
+    pEnc->drawIndexedPrimitives(MTL::PrimitiveType::PrimitiveTypeTriangle, NS::UInteger(6), MTL::IndexType::IndexTypeUInt32, quadMesh.pIndexBuffer, NS::UInteger(0), NS::UInteger(1));
+    
     pEnc->endEncoding();
     pCmd->presentDrawable( pView->currentDrawable() );
     pCmd->commit();

@@ -10,8 +10,8 @@ using namespace metal;
 
 struct vertexIn
 {
-    float4 position;
-    float3 color;
+    float3 position[[attribute(0)]];
+    float3 color[[attribute(1)]];
 };
 
 struct vertexOut
@@ -20,14 +20,12 @@ struct vertexOut
    half3 color;
 };
 
-vertexOut vertex vertexMain( uint vertexId [[vertex_id]],
-                      device const float3* positions [[buffer(0)]],
-                      device const float3* colors [[buffer(1)]] )
+vertexOut vertex vertexMain(vertexIn i [[stage_in]])
 {
-   vertexOut o;
-   o.position = float4( positions[ vertexId ], 1.0 );
-   o.color = half3 ( colors[ vertexId ] );
-   return o;
+    vertexOut o;
+    o.position = float4(i.position, 1.0 );
+    o.color = half3 (i.color);
+    return o;
 }
 
 half4 fragment fragmentMain( vertexOut in [[stage_in]] )
