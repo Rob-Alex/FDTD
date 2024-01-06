@@ -56,6 +56,7 @@ void Renderer::buildShaders()
     pVertexFn->release();
     pFragFn->release();
     pLibrary->release();
+    file.close();
 }
 
 void Renderer::buildBuffers()

@@ -16,6 +16,7 @@
 		989DD64F2B3101C700A8B8FE /* structures.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 989DD64D2B3101C700A8B8FE /* structures.cpp */; };
 		989DD6522B31026700A8B8FE /* material.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 989DD6502B31026700A8B8FE /* material.cpp */; };
 		989DD6552B31026F00A8B8FE /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 989DD6532B31026F00A8B8FE /* source.cpp */; };
+		98AC0C8D2B48D865000335D2 /* mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98AC0C8B2B48D865000335D2 /* mesh.cpp */; };
 		98DF76BC2B31086500B1C9EB /* shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 98DF76BB2B31086500B1C9EB /* shader.metal */; };
 		98DF76C62B31DFF400B1C9EB /* view_delegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98DF76BE2B31CF6500B1C9EB /* view_delegate.cpp */; };
 		98DF76C72B31DFF400B1C9EB /* app_delegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 98DF76C12B31CF8B00B1C9EB /* app_delegate.cpp */; };
@@ -151,6 +152,8 @@
 		989DD6532B31026F00A8B8FE /* source.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = source.cpp; sourceTree = "<group>"; };
 		989DD6542B31026F00A8B8FE /* source.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = source.hpp; sourceTree = "<group>"; };
 		989DD6562B31028600A8B8FE /* config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = config.hpp; sourceTree = "<group>"; };
+		98AC0C8B2B48D865000335D2 /* mesh.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mesh.cpp; sourceTree = "<group>"; };
+		98AC0C8C2B48D865000335D2 /* mesh.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mesh.hpp; sourceTree = "<group>"; };
 		98DF76B12B31077C00B1C9EB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		98DF76BB2B31086500B1C9EB /* shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shader.metal; sourceTree = "<group>"; };
 		98DF76BD2B31CF5B00B1C9EB /* view_delegate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = view_delegate.hpp; sourceTree = "<group>"; };
@@ -373,6 +376,7 @@
 		989DD63D2B31002C00A8B8FE /* src */ = {
 			isa = PBXGroup;
 			children = (
+				98AC0C8B2B48D865000335D2 /* mesh.cpp */,
 				989DD6532B31026F00A8B8FE /* source.cpp */,
 				989DD6502B31026700A8B8FE /* material.cpp */,
 				989DD64D2B3101C700A8B8FE /* structures.cpp */,
@@ -411,6 +415,7 @@
 				98DF76C52B31CFA100B1C9EB /* renderer.hpp */,
 				98DF76C02B31CF7100B1C9EB /* app_delegate.hpp */,
 				98DF76BD2B31CF5B00B1C9EB /* view_delegate.hpp */,
+				98AC0C8C2B48D865000335D2 /* mesh.hpp */,
 			);
 			path = renderer;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				989DD64C2B3101B100A8B8FE /* field.cpp in Sources */,
 				989DD5CA2B30FFED00A8B8FE /* main.cpp in Sources */,
 				98DF76BC2B31086500B1C9EB /* shader.metal in Sources */,
+				98AC0C8D2B48D865000335D2 /* mesh.cpp in Sources */,
 				989DD64F2B3101C700A8B8FE /* structures.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
